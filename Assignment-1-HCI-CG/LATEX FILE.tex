@@ -1,0 +1,289 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usetheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamertemplate{footline}{}
+\setbeamertemplate{headline}{}
+
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{graphicx}
+\usepackage{tcolorbox}
+\usepackage{ragged2e}
+
+\definecolor{hciblue}{HTML}{1F618D}
+\definecolor{cgred}{HTML}{C0392B}
+\definecolor{darktext}{HTML}{1A1A1A}
+\definecolor{graytext}{HTML}{555555}
+\definecolor{lightbg}{HTML}{F7F7F7}
+\definecolor{borderc}{HTML}{E0E0E0}
+
+% ---------------------------------------------------------
+% Numbered circle
+% ---------------------------------------------------------
+
+\newcommand{\circnum}[2]{%
+  \tikz[baseline=-0.65ex]{%
+    \node[
+      circle,
+      fill=#1,
+      text=white,
+      font=\bfseries\small,
+      inner sep=0pt,
+      minimum size=0.42cm
+    ] {#2};
+  }%
+}
+
+% ---------------------------------------------------------
+% Annotation number on screenshot
+% ---------------------------------------------------------
+
+\newcommand{\annot}[4]{%
+  \node[
+    circle,
+    fill=#4,
+    draw=white,
+    line width=1pt,
+    minimum size=0.44cm,
+    inner sep=0pt,
+    font=\bfseries\scriptsize,
+    text=white
+  ]
+  at ($(img.north west)+(#1,-#2)$) {#3};
+}
+
+% ---------------------------------------------------------
+% Legend item
+% ---------------------------------------------------------
+
+\newcommand{\legenditem}[4]{%
+  \par\noindent
+  \circnum{#1}{#2}
+  \hspace{3pt}
+  {\scriptsize\bfseries\color{darktext}#3}\\
+  {\tiny\color{graytext}\RaggedRight #4\par}
+  \vspace{1pt}
+}
+
+% ---------------------------------------------------------
+% Reflection box
+% ---------------------------------------------------------
+
+\newcommand{\reflectionbox}[2]{%
+  \begin{tcolorbox}[
+    colback=lightbg,
+    colframe=borderc,
+    boxrule=0.5pt,
+    arc=2pt,
+    left=7pt,
+    right=7pt,
+    top=3pt,
+    bottom=3pt
+  ]
+    \scriptsize
+    \textbf{\color{darktext}#1}
+    {\color{graytext}#2}
+  \end{tcolorbox}
+}
+
+% =========================================================
+% DOCUMENT
+% =========================================================
+
+\begin{document}
+
+% =========================================================
+% SLIDE 1 - HCI
+% =========================================================
+
+\begin{frame}[t]
+
+\vspace*{-1mm}
+
+{\large\bfseries\color{darktext}
+Screenshot 1 --- HCI Focus}
+\quad
+{\small\color{graytext}
+(Tinkercad, 3D Design Interface)}
+
+\vspace{2mm}
+
+\begin{columns}[t]
+
+% ---------------------------------------------------------
+% LEFT SIDE - SCREENSHOT
+% ---------------------------------------------------------
+
+\begin{column}{0.60\textwidth}
+
+\begin{tikzpicture}
+
+\node[
+  anchor=north west,
+  inner sep=0
+] (img) at (0,0)
+{\includegraphics[
+  width=7.2cm
+]{hci.png}};
+
+\draw[
+  borderc,
+  line width=0.6pt
+]
+(img.north west)
+rectangle
+(img.south east);
+
+% Annotation 1 - View Cube
+\annot{0.30cm}{0.96cm}{1}{hciblue}
+
+% Annotation 2 - Zoom controls
+\annot{0.13cm}{2.01cm}{2}{hciblue}
+
+% Annotation 3 - Shape Gallery
+\annot{6.27cm}{1.48cm}{3}{hciblue}
+
+\end{tikzpicture}
+
+\end{column}
+
+% ---------------------------------------------------------
+% RIGHT SIDE - HCI INFORMATION
+% ---------------------------------------------------------
+
+\begin{column}{0.40\textwidth}
+
+{\scriptsize\bfseries\color{hciblue}
+HCI ELEMENTS}
+
+\vspace{1mm}
+
+\legenditem{hciblue}{1}
+{Orientation (View) Cube}
+{Click a face to snap the camera to a standard view --- a direct way to reorient.}
+
+\legenditem{hciblue}{2}
+{Zoom +/- Controls}
+{Large, high-contrast buttons that clearly signal ``clickable'' for a common action.}
+
+\legenditem{hciblue}{3}
+{Shape Gallery + Search}
+{Drag-and-drop panel with search, letting users recognize shapes instead of recalling names.}
+
+\end{column}
+
+\end{columns}
+
+\vfill
+
+% ---------------------------------------------------------
+% REFLECTION 2
+% ---------------------------------------------------------
+
+\reflectionbox
+{Reflection 2 --- HCI Improvement: }
+{I would add clearer labels or tooltips to the main navigation controls.
+This would help beginners understand the purpose of each control more quickly.}
+
+\end{frame}
+
+
+% =========================================================
+% SLIDE 2 - COMPUTER GRAPHICS
+% =========================================================
+
+\begin{frame}[t]
+
+\vspace*{-1mm}
+
+{\large\bfseries\color{darktext}
+Screenshot 2 --- CG Focus}
+\quad
+{\small\color{graytext}
+(Tinkercad, 3D Design Interface)}
+
+\vspace{2mm}
+
+\begin{columns}[t]
+
+% ---------------------------------------------------------
+% LEFT SIDE - SCREENSHOT
+% ---------------------------------------------------------
+
+\begin{column}{0.60\textwidth}
+
+\begin{tikzpicture}
+
+\node[
+  anchor=north west,
+  inner sep=0
+] (img) at (0,0)
+{\includegraphics[
+  width=7.2cm
+]{cg.png}};
+
+\draw[
+  borderc,
+  line width=0.6pt
+]
+(img.north west)
+rectangle
+(img.south east);
+
+% Annotation 1 - 3D Meshes
+\annot{2.92cm}{1.57cm}{1}{cgred}
+
+% Annotation 2 - Shading
+\annot{2.30cm}{1.97cm}{2}{cgred}
+
+% Annotation 3 - Perspective Grid
+\annot{4.75cm}{0.99cm}{3}{cgred}
+
+\end{tikzpicture}
+
+\end{column}
+
+% ---------------------------------------------------------
+% RIGHT SIDE - CG INFORMATION
+% ---------------------------------------------------------
+
+\begin{column}{0.40\textwidth}
+
+{\scriptsize\bfseries\color{cgred}
+CG ELEMENTS}
+
+\vspace{1mm}
+
+\legenditem{cgred}{1}
+{3D Primitive Meshes}
+{Each shape is a polygon mesh --- vertices and faces defining a 3D solid.}
+
+\legenditem{cgred}{2}
+{Shading \& Specular Highlight}
+{The sphere's light-to-dark gradient and highlight simulate a light source, reading as ``round''.}
+
+\legenditem{cgred}{3}
+{Perspective Grid (Workplane)}
+{Grid lines converge toward the horizon, signaling a perspective camera and depth.}
+
+\end{column}
+
+\end{columns}
+
+\vfill
+
+% ---------------------------------------------------------
+% REFLECTION 1
+% ---------------------------------------------------------
+
+\reflectionbox
+{Reflection 1 --- CG Quality: }
+{Shading and perspective help shapes read as real 3D objects, so size and overlap are judged intuitively.
+However, perspective distortion can hinder precision work because edge objects may appear skewed, complicating exact alignment.}
+
+\end{frame}
+
+\end{document}
