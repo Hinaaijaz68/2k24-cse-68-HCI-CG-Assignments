@@ -45,8 +45,6 @@ I would add clearer labels or tooltips to the main navigation controls. This wou
 
 ## Files
 
-## Files
-
 - `ASSIGNMENT_HCI_CG.pdf` – Final two-slide assignment
 - `LATEX FILE.tex` – LaTeX source code used to create the assignment
 - `README.md` – Project documentation
