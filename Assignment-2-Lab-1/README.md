@@ -130,11 +130,11 @@ RGB uses **3 channels per pixel**, while RGBA uses **4 channels per pixel**.
 
 ### Desktop Display Metrics
 
-![Desktop Metrics](screenshots/desktop_metrics.png)
+![Desktop Display Metrics](screenshots/desktop_metrics.png)
 
 ### Smartphone Display Metrics
 
-![Smartphone Metrics](screenshots/smartphone_metrics.png)
+![Smartphone Display Metrics](screenshots/smartphone_metrics.png)
 
 ### Task 3 - RGB Channel Extraction
 
